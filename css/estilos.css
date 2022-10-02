@@ -68,13 +68,13 @@ a {
 
 body {
   background-color: #fff;
-  width: 100%;
+
   text-align: center;
 }
 
 /**** estilos especiales ****/
 
-header {
+#header {
   background-color: rgb(46, 46, 46);
   justify-content: space-between;
   align-items: center;
@@ -85,13 +85,18 @@ header {
 
 header .logo {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: no-wrap;
   justify-content: center;
   align-items: center;
+  width: 30%;
+}
+
+.logo img {
+  max-width: 50%;
 }
 
 header .logo h1 {
-  font-size: 3rem;
+  font-size: 2rem;
 }
 
 nav {
@@ -99,13 +104,13 @@ nav {
 }
 nav ul {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: no-wrap;
   justify-content: space-between;
 }
 
 nav li {
   margin: 15px;
-  font-size: 1.5rem;
+  /*font-size: 1.3rem;*/
   font-weight: 300;
 }
 
@@ -164,18 +169,16 @@ h2 {
 }
 
 .cards {
-  text-align: left;
-  margin: 20px;
   display: flex;
-
   justify-content: center;
   flex-wrap: wrap;
 }
 
 .card {
   border: 1px solid #000;
-  max-width: 450px;
   margin: 20px;
+  text-align: left;
+  width: 30%;
 }
 
 .card img {
@@ -324,13 +327,39 @@ footer ul li a:hover {
 }
 
 /*   MEDIA QUERIES  ***********/
+@media (max-width: 768px) {
+  footer ul,
+  nav ul {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  footer ul li {
+    border: 1px solid #fff;
+    padding: 20px;
+    margin: 15px auto;
+    max-width: 100%;
+  }
+
+  footer ul li:hover,
+  nav li:hover {
+    color: #fff;
+    scale: 110%;
+  }
+
+  .card {
+    width: 50%;
+  }
+}
 
 @media (max-width: 1100px) {
   nav li,
   .sub-slider,
   #lugar img,
   .texto,
-  .wide50 {
+  .wide50,
+  header .logo,
+  nav {
     width: 100%;
   }
 
@@ -345,25 +374,5 @@ footer ul li a:hover {
 
   #formulario {
     width: 90%;
-  }
-
-  footer ul,
-  nav ul {
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  footer ul li,
-  nav li {
-    border: 1px solid #fff;
-    padding: 20px;
-    margin: 15px auto;
-    max-width: 100%;
-  }
-
-  footer ul li:hover,
-  nav li:hover {
-    color: #fff;
-    scale: 110%;
   }
 }
