@@ -326,6 +326,13 @@ footer ul li a:hover {
   color: aqua;
 }
 
+#nombre,
+#apellido,
+#email,
+#btnBorrar {
+  margin-bottom: 20px;
+}
+
 /*   MEDIA QUERIES  ***********/
 @media (max-width: 768px) {
   footer ul,

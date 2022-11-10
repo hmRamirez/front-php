@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Proyecto Integrador</title>
+    <title>Bootstrap demo</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="./css/estilos.css" />
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <header id="header">
+        <div class="logo">
+          <img src="./assets/img/codoacodo.png" alt="logo codo a codo" />
+          <h1>Conf Bs As</h1>
+        </div>
+        <nav>
+          <ul>
+            <li>
+              <a href="#top"><span>La conferencia</span></a>
+            </li>
+            <li><a href="#oradores">Los oradores</a></li>
+            <li><a href="#lugar">El lugar y la fecha</a></li>
+            <li><a href="#formulario">Conviértete en orador</a></li>
+            <li>
+              <a href="#"><span class="green">Comprar tickets</span></a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <div class="formulario text-center">
+        <!-- CARDS -->
+        <div class="tarjetas">
+          <div class="card-group">
+            <div class="card text-center">
+              <div class="card-body border border-primary">
+                <h5 class="card-title">Estudiante</h5>
+                <p class="card-text text-muted text-center">
+                  Tiene un descuento
+                </p>
+                <p class="card-text text-center">80%</p>
+                <p class="card-text text-center">
+                  <small class="text-muted">(*) presentar documentacion.</small>
+                </p>
+              </div>
+            </div>
+            <div class="card text-center">
+              <div class="card-body border border-success">
+                <h5 class="card-title">Trainee</h5>
+                <p class="card-text text-muted">Tiene un descuento</p>
+                <p class="card-text">50%</p>
+                <p class="card-text">
+                  <small class="text-muted">(*) presentar documentacion.</small>
+                </p>
+              </div>
+            </div>
+            <div class="card text-center">
+              <div class="card-body border border-warning">
+                <h5 class="card-title">Junior</h5>
+                <p class="card-text text-muted">Tiene un descuento</p>
+                <p class="card-text">15%</p>
+                <p class="card-text">
+                  <small class="text-muted">(*) presentar documentacion.</small>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FORM -->
+        <div class="valor">
+          <h3>VENTA</h3>
+          <h2>VALOR DEL TICKET $ 200</h2>
+        </div>
+        <form class="row" action="">
+          <div class="col-md-6">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Nombre"
+              id="nombre"
+              required
+            />
+          </div>
+          <div class="col-md-6">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Apellido"
+              id="apellido"
+            />
+          </div>
+          <div class="col-12">
+            <input
+              type="email"
+              class="form-control"
+              placeholder="correo"
+              id="email"
+            />
+          </div>
+
+          <div class="col-md-6 text-start">
+            <label for="" class="form-label">Cantidad</label>
+            <input
+              id="cantidad"
+              type="number"
+              class="form-control"
+              min="0"
+              max="100"
+            />
+          </div>
+          <div class="col-md-6 text-start">
+            <label for="" class="form-label">Categoria</label>
+            <select id="categoria" class="form-select">
+              <option selected>Ninguno</option>
+              <option>Trainee</option>
+              <option>Junior</option>
+              <option>Estudiante</option>
+            </select>
+          </div>
+
+          <div class="col-12">
+            <div class="bg-info">
+              <p>Total a pagar: $ <span id="total">0</span></p>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div id="btnBorrar" class="bg-success p-2 text-white">Borrar</div>
+          </div>
+          <div class="col-md-6">
+            <div id="btnResumen" class="bg-success p-2 text-white">Resumen</div>
+          </div>
+        </form>
+      </div>
+
+      <footer>
+        <div class="footer-links">
+          <ul>
+            <li><a href="">Preguntas Frecuentes</a></li>
+            <li><a href="">Contáctanos</a></li>
+            <li><a href="">Prensa</a></li>
+            <li><a href="">Conferencias</a></li>
+            <li><a href="">Terminos y condiciones</a></li>
+            <li><a href="">Privacidad</a></li>
+            <li><a href="">Estudiantes</a></li>
+          </ul>
+        </div>
+      </footer>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
+      integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      function valorInicial() {
+        nombre.value = "";
+        apellido.value = "";
+        email.value = "";
+        inputCantidad.value = 0;
+        inputValor.innerText = "0,00";
+        categoria.value = "Ninguno";
+      }
+
+      function mostrarResumen() {
+        let valor = subtotal();
+        switch (categoria.value) {
+          case "Trainee":
+            valor *= 0.5;
+            break;
+          case "Junior":
+            valor *= 0.85;
+            break;
+          case "Estudiante":
+            valor *= 0.2;
+            break;
+        }
+        inputValor.innerText = valor.toFixed(2);
+      }
+
+      function subtotal() {
+        cantidad = inputCantidad.value;
+        return cantidad * 200;
+      }
+      let nombre = document.getElementById("nombre");
+      let apellido = document.getElementById("apellido");
+      let email = document.getElementById("email");
+      let inputCantidad = document.getElementById("cantidad");
+      let categoria = document.getElementById("categoria");
+      let inputValor = document.getElementById("total");
+      let resumen = document.getElementById("btnResumen");
+      let borrar = document.getElementById("btnBorrar");
+      let ticket = 200;
+      valorInicial();
+
+      resumen.addEventListener("click", () => mostrarResumen());
+      borrar.addEventListener("click", () => valorInicial());
+    </script>
+  </body>
+</html>
